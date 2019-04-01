@@ -66,6 +66,27 @@ public class Philosopher extends BaseThread
 			System.exit(1);
 		}
 	}
+	/**
+	 * The act of sleeping.
+	 * - Print the fact that a given phil (their TID) has started sleeping.
+	 * - yield
+	 * - Then sleep() for a random interval.
+	 * - yield
+	 * - The print that they are done talking.
+	 */
+	public void sleep()
+	{
+		System.out.println("Philosopher " + getTID() + " has started sleeping");
+		yield();
+		try {
+			sleep((long)(Math.random() * TIME_TO_WASTE));
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		yield();
+		System.out.println("Philosopher " + getTID() + " has finished sleeping");
+	}
 
 	/**
 	 * The act of talking.
@@ -83,6 +104,8 @@ public class Philosopher extends BaseThread
 		yield();
 		System.out.println("Philosopher " + getTID() + " has finished talking");
 	}
+	
+	
 
 	/**
 	 * No, this is not the act of running, just the overridden Thread.run()
@@ -107,11 +130,21 @@ public class Philosopher extends BaseThread
 			// if the rounding of a random number between 0 and 1 is equal to 1, then talk (~50% chance)
 			if(Math.round(Math.random()) == 1)
 			{
-				DiningPhilosophers.soMonitor.requestTalk();
+				DiningPhilosophers.soMonitor.requestTalk(getTID());
 				yield();
 				talk();
 				yield();
-				DiningPhilosophers.soMonitor.endTalk();
+				DiningPhilosophers.soMonitor.endTalk(getTID());
+			}
+			
+			// if the rounding of a random number is less than 0.2, then sleep (~20% chance)
+			if(Math.round(Math.random()) < 0.2)
+			{
+				DiningPhilosophers.soMonitor.requestSleep(getTID());
+				yield();
+				sleep();
+				yield();
+				DiningPhilosophers.soMonitor.endSleep(getTID());
 			}
 		}
 	} // run()
@@ -136,6 +169,13 @@ public class Philosopher extends BaseThread
 			"Philosopher " + getTID() + " says: " +
 			astrPhrases[(int)(Math.random() * astrPhrases.length)]
 		);
+		
+		for(int i=0;i<999999;i++)
+		{
+			double random = Math.random();
+			double k = 999999 / random;
+		}
+			
 	}
 }
 
