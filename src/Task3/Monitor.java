@@ -17,7 +17,7 @@ public class Monitor
 	 * ------------
 	 */
 	private int n;  //number of philosophers
-	enum State {THINKING, HUNGRY, EATING}
+	enum State {THINKING, HUNGRY, EATING, SLEEPING, TALKING}
 	private State state[]; //state of each philosopher
 	private int priorities[]; //priority of each philosopher where index + 1 is the philosopher ID and priorities[index]
 	//is that philosopher's priority where 1 is the highest priority
@@ -121,16 +121,19 @@ public class Monitor
 	 * Only one philopher at a time is allowed to philosophy
 	 * (while she is not eating).
 	 */
-	public synchronized void requestTalk()
+	public synchronized void requestTalk(final int piTID)
 	{
 		try
 		{
 			while(true) //infinite loop
 			{
-				if (!someoneTalking) //only if someone isn't talking
+				//only if there is no one talking and the person requesting to talk isn't eating or sleeping
+				if (!someoneTalking && state[piTID - 1] != State.EATING && state[piTID - 1] != State.SLEEPING)
 				{
+					state[piTID - 1] = State.TALKING; //set state to talking
 					someoneTalking = true; //set talking flag to true
-					return; //exit
+					notifyAll();
+					break; //exit
 				}
 				else
 				{
@@ -148,11 +151,47 @@ public class Monitor
 	 * When one philosopher is done talking stuff, others
 	 * can feel free to start talking.
 	 */
-	public synchronized void endTalk()
+	public synchronized void endTalk(final int piTID)
 	{
+		state[piTID - 1] = State.THINKING; //set state to thinking
 		someoneTalking = false; //set flag to false
 		notifyAll(); //allow all threads to try to request talk
 		return; //exit
+	}
+
+	/**
+	 * philosopher cannot sleep while other are talking
+	 * 
+	 */
+	public synchronized void requestSleep(final int piTID)
+	{
+		try
+		{
+			while(true) //infinite loop
+			{
+				if (!someoneTalking) //only if someone isn't talking, he can sleep
+				{
+					state[piTID - 1] = State.SLEEPING;
+					notifyAll();
+					break; //exit
+				}
+				else
+				{
+					//System.out.println("Someone is talking, " + (piTID -1)+ " philosopher cannot sleep.");
+					wait(); //else wait for someone to finish talking
+				}
+			}
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	public synchronized void endSleep(final int piTID)
+	{
+		state[piTID - 1] = State.THINKING; //reset state to thinking
+		notifyAll();
 	}
 }
 
