@@ -100,11 +100,35 @@ public class Philosopher extends BaseThread
 
 			DiningPhilosophers.soMonitor.pickUp(getTID());
 
+			if (exitFlag)
+			{
+				System.out.println("Philosopher " + getTID() + " terminated");
+				break;
+			}
+
 			eat();
+
+			if (exitFlag)
+			{
+				System.out.println("Philosopher " + getTID() + " terminated");
+				break;
+			}
 
 			DiningPhilosophers.soMonitor.putDown(getTID());
 
+			if (exitFlag)
+			{
+				System.out.println("Philosopher " + getTID() + " terminated");
+				break;
+			}
+
 			think();
+
+			if (exitFlag)
+			{
+				System.out.println("Philosopher " + getTID() + " terminated");
+				break;
+			}
 
 			/*
 			 * TODO:
