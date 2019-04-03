@@ -155,19 +155,19 @@ public class Philosopher extends BaseThread
 	public void saySomething()
 	{
 		String[] astrPhrases =
-						{
-										"Eh, it's not easy to be a philosopher: eat, think, talk, eat...",
-										"You know, true is false and false is true if you think of it",
-										"2 + 2 = 5 for extremely large values of 2...",
-										"If thee cannot speak, thee must be silent",
-										"My number is " + getTID() + ""
-						};
+		{
+						"Eh, it's not easy to be a philosopher: eat, think, talk, eat...",
+						"You know, true is false and false is true if you think of it",
+						"2 + 2 = 5 for extremely large values of 2...",
+						"If thee cannot speak, thee must be silent",
+						"My number is " + getTID() + ""
+		};
 
 		System.out.println
-						(
-										"Philosopher " + getTID() + " says: " +
-														astrPhrases[(int)(Math.random() * astrPhrases.length)]
-						);
+		(
+						"Philosopher " + getTID() + " says: " +
+										astrPhrases[(int)(Math.random() * astrPhrases.length)]
+		);
 	}
 }
 

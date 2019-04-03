@@ -85,6 +85,28 @@ public class Philosopher extends BaseThread
 	}
 
 	/**
+	 * The act of sleeping.
+	 * - Print the fact that a given phil (their TID) has started sleeping.
+	 * - yield
+	 * - Then sleep() for a random interval.
+	 * - yield
+	 * - The print that they are done talking.
+	 */
+	public void sleep()
+	{
+		System.out.println("Philosopher " + getTID() + " has started sleeping");
+		yield();
+		try {
+			sleep((long)(Math.random() * TIME_TO_WASTE));
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		yield();
+		System.out.println("Philosopher " + getTID() + " has finished sleeping");
+	}
+
+	/**
 	 * No, this is not the act of running, just the overridden Thread.run()
 	 */
 	public void run()
@@ -104,14 +126,24 @@ public class Philosopher extends BaseThread
 			 * A decision is made at random whether this particular
 			 * philosopher is about to say something terribly useful.
 			 */
-			// if the rounding of a random number between 0 and 1 is equal to 1, then talk (~50% chance)
-			if(Math.round(Math.random()) == 1)
+			// ifa random number is less than 0.5, then talk (~50% chance)
+			if(Math.random() < 0.5)
 			{
-				DiningPhilosophers.soMonitor.requestTalk();
+				DiningPhilosophers.soMonitor.requestTalk(getTID());
 				yield();
 				talk();
 				yield();
-				DiningPhilosophers.soMonitor.endTalk();
+				DiningPhilosophers.soMonitor.endTalk(getTID());
+			}
+
+			// ifa random number is less than 0.2, then sleep (~20% chance)
+			if (Math.random() < 0.2)
+			{
+				DiningPhilosophers.soMonitor.requestSleep(getTID());
+				yield();
+				sleep();
+				yield();
+				DiningPhilosophers.soMonitor.endSleep(getTID());
 			}
 		}
 	} // run()
@@ -124,18 +156,24 @@ public class Philosopher extends BaseThread
 	{
 		String[] astrPhrases =
 		{
-			"Eh, it's not easy to be a philosopher: eat, think, talk, eat...",
-			"You know, true is false and false is true if you think of it",
-			"2 + 2 = 5 for extremely large values of 2...",
-			"If thee cannot speak, thee must be silent",
-			"My number is " + getTID() + ""
+						"Eh, it's not easy to be a philosopher: eat, think, talk, eat...",
+						"You know, true is false and false is true if you think of it",
+						"2 + 2 = 5 for extremely large values of 2...",
+						"If thee cannot speak, thee must be silent",
+						"My number is " + getTID() + ""
 		};
 
 		System.out.println
 		(
-			"Philosopher " + getTID() + " says: " +
-			astrPhrases[(int)(Math.random() * astrPhrases.length)]
+						"Philosopher " + getTID() + " says: " +
+										astrPhrases[(int)(Math.random() * astrPhrases.length)]
 		);
+		//limited time to talk
+		try {
+			sleep((long)(Math.random() * TIME_TO_WASTE));
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 }
 
