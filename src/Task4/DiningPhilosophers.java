@@ -48,7 +48,7 @@ public class DiningPhilosophers
 			 * Should be settable from the command line
 			 * or the default if no arguments supplied.
 			 */
-			int iPhilosophers = DEFAULT_NUMBER_OF_PHILOSOPHERS; //default
+			int iPhilosophers = DEFAULT_NUMBER_OF_PHILOSOPHERS;
 			if (argv.length == 1) //if there is an argument
 			{
 				try
@@ -74,7 +74,6 @@ public class DiningPhilosophers
 					System.exit(-1);
 				}
 			}
-
 			// Make the monitor aware of how many philosophers there are
 			soMonitor = new Monitor(iPhilosophers);
 
