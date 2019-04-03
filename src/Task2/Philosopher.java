@@ -136,7 +136,7 @@ public class Philosopher extends BaseThread
 				DiningPhilosophers.soMonitor.endTalk(getTID());
 			}
 
-			// ifa random number is less than 0.2, then sleep (~20% chance)
+			// if a random number is less than 0.2, then sleep (~20% chance)
 			if (Math.random() < 0.2)
 			{
 				DiningPhilosophers.soMonitor.requestSleep(getTID());
