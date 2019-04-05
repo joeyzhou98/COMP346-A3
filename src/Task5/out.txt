@@ -1,0 +1,503 @@
+"C:\Program Files\Java\jdk-11.0.1\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3.2\lib\idea_rt.jar=59480:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3.2\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\Dan\IdeaProjects\A3\out\production\A3 Task5.DiningPhilosophers
+Picked up _JAVA_OPTIONS: -Xmx512M
+4 philosopher(s) came in for a dinner.
+Philosopher 1 has started eating
+Philosopher 3 has started eating
+Philosopher 1 has finished eating
+Philosopher 1 has started thinking
+Philosopher 3 has finished eating
+Philosopher 2 has started eating
+Philosopher 4 has started eating
+Philosopher 3 has started thinking
+Philosopher 1 has finished thinking
+Philosopher 1 has started talking
+Philosopher 1 says: You know, true is false and false is true if you think of it
+Philosopher 1 has finished talking
+Philosopher 3 has finished thinking
+Philosopher 3 has started sleeping
+Philosopher 4 has finished eating
+Philosopher 4 has started thinking
+Philosopher 2 has finished eating
+Philosopher 1 has started eating
+Philosopher 2 has started thinking
+Philosopher 1 has finished eating
+Philosopher 1 has started thinking
+Philosopher 4 has finished thinking
+Philosopher 4 has started sleeping
+Philosopher 1 has finished thinking
+Philosopher 1 has started talking
+Philosopher 1 says: My number is 1
+Philosopher 4 has finished sleeping
+Philosopher 4 has started eating
+Philosopher 3 has finished sleeping
+Terminating philosopher 2
+Philosopher 1 has finished talking
+Philosopher 2 has finished thinking
+Philosopher 2 terminated
+Philosopher 4 has finished eating
+Philosopher 4 has started thinking
+Philosopher 3 has started eating
+Philosopher 3 has finished eating
+Philosopher 3 has started thinking
+Philosopher 1 has started eating
+Philosopher 4 has finished thinking
+Philosopher 4 has started sleeping
+Philosopher 3 has finished thinking
+Philosopher 3 has started talking
+Philosopher 3 says: You know, true is false and false is true if you think of it
+Philosopher 4 has finished sleeping
+Philosopher 1 has finished eating
+Philosopher 1 has started thinking
+Philosopher 4 has started eating
+Philosopher 3 has finished talking
+Adding philosopher 5
+Philosopher 4 has finished eating
+Philosopher 4 has started thinking
+Philosopher 3 has started eating
+Philosopher 5 has started eating
+Philosopher 3 has finished eating
+Philosopher 3 has started thinking
+Philosopher 1 has finished thinking
+Philosopher 1 has started talking
+Philosopher 1 says: Eh, it's not easy to be a philosopher: eat, think, talk, eat...
+Philosopher 1 has finished talking
+Philosopher 4 has finished thinking
+Philosopher 4 has started talking
+Philosopher 4 says: My number is 4
+Philosopher 5 has finished eating
+Philosopher 5 has started thinking
+Philosopher 1 has started eating
+Philosopher 3 has finished thinking
+Philosopher 4 has finished talking
+Philosopher 4 has started sleeping
+Philosopher 1 has finished eating
+Philosopher 1 has started thinking
+Philosopher 3 has started eating
+Philosopher 3 has finished eating
+Philosopher 3 has started thinking
+Philosopher 5 has finished thinking
+Philosopher 5 has started talking
+Philosopher 5 says: Eh, it's not easy to be a philosopher: eat, think, talk, eat...
+Philosopher 4 has finished sleeping
+Philosopher 4 has started eating
+Terminating philosopher 1
+Philosopher 1 has finished thinking
+Philosopher 1 terminated
+Philosopher 5 has finished talking
+Philosopher 3 has finished thinking
+Philosopher 3 has started talking
+Philosopher 3 says: My number is 3
+Philosopher 4 has finished eating
+Philosopher 4 has started thinking
+Philosopher 5 has started eating
+Philosopher 5 has finished eating
+Philosopher 5 has started thinking
+Philosopher 4 has finished thinking
+Philosopher 3 has finished talking
+Philosopher 3 has started eating
+Philosopher 4 has started sleeping
+Philosopher 3 has finished eating
+Philosopher 3 has started thinking
+Philosopher 4 has finished sleeping
+Philosopher 4 has started eating
+Philosopher 5 has finished thinking
+Philosopher 5 has started talking
+Philosopher 5 says: 2 + 2 = 5 for extremely large values of 2...
+Philosopher 3 has finished thinking
+Philosopher 4 has finished eating
+Philosopher 4 has started thinking
+Adding philosopher 6
+Philosopher 6 has started eating
+Philosopher 5 has finished talking
+Philosopher 3 has started talking
+Philosopher 3 says: 2 + 2 = 5 for extremely large values of 2...
+Philosopher 6 has finished eating
+Philosopher 6 has started thinking
+Philosopher 5 has started eating
+Philosopher 3 has finished talking
+Philosopher 3 has started eating
+Philosopher 6 has finished thinking
+Philosopher 6 has started talking
+Philosopher 6 says: 2 + 2 = 5 for extremely large values of 2...
+Philosopher 5 has finished eating
+Philosopher 5 has started thinking
+Philosopher 4 has finished thinking
+Philosopher 5 has finished thinking
+Philosopher 5 has started eating
+Philosopher 5 has finished eating
+Philosopher 5 has started thinking
+Philosopher 6 has finished talking
+Philosopher 4 has started talking
+Philosopher 4 says: If thee cannot speak, thee must be silent
+Philosopher 3 has finished eating
+Philosopher 3 has started thinking
+Philosopher 6 has started eating
+Philosopher 4 has finished talking
+Philosopher 4 has started eating
+Philosopher 6 has finished eating
+Philosopher 6 has started thinking
+Philosopher 5 has finished thinking
+Philosopher 5 has started talking
+Philosopher 5 says: You know, true is false and false is true if you think of it
+Philosopher 6 has finished thinking
+Philosopher 3 has finished thinking
+Adding philosopher 7
+Philosopher 7 has started eating
+Philosopher 4 has finished eating
+Philosopher 4 has started thinking
+Philosopher 4 has finished thinking
+Philosopher 5 has finished talking
+Philosopher 6 has started talking
+Philosopher 5 has started eating
+Philosopher 6 says: 2 + 2 = 5 for extremely large values of 2...
+Philosopher 7 has finished eating
+Philosopher 7 has started thinking
+Philosopher 6 has finished talking
+Philosopher 4 has started talking
+Philosopher 4 says: Eh, it's not easy to be a philosopher: eat, think, talk, eat...
+Philosopher 5 has finished eating
+Philosopher 5 has started thinking
+Philosopher 6 has started eating
+Philosopher 4 has finished talking
+Philosopher 4 has started sleeping
+Philosopher 3 has started sleeping
+Philosopher 4 has finished sleeping
+Philosopher 4 has started eating
+Philosopher 6 has finished eating
+Philosopher 6 has started thinking
+Philosopher 7 has finished thinking
+Philosopher 7 has started eating
+Philosopher 3 has finished sleeping
+Philosopher 4 has finished eating
+Philosopher 4 has started thinking
+Philosopher 6 has finished thinking
+Philosopher 6 has started sleeping
+Philosopher 7 has finished eating
+Philosopher 7 has started thinking
+Philosopher 3 has started eating
+Philosopher 5 has finished thinking
+Philosopher 5 has started talking
+Philosopher 5 says: Eh, it's not easy to be a philosopher: eat, think, talk, eat...
+Philosopher 5 has finished talking
+Philosopher 5 has started eating
+Philosopher 4 has finished thinking
+Philosopher 4 has started talking
+Philosopher 4 says: You know, true is false and false is true if you think of it
+Philosopher 7 has finished thinking
+Adding philosopher 8
+Philosopher 6 has finished sleeping
+Philosopher 4 has finished talking
+Philosopher 7 has started talking
+Philosopher 7 says: If thee cannot speak, thee must be silent
+Philosopher 3 has finished eating
+Philosopher 3 has started thinking
+Philosopher 8 has started eating
+Philosopher 5 has finished eating
+Philosopher 5 has started thinking
+Philosopher 4 has started eating
+Philosopher 6 has started eating
+Philosopher 4 has finished eating
+Philosopher 4 has started thinking
+Philosopher 4 has finished thinking
+Philosopher 3 has finished thinking
+Philosopher 5 has finished thinking
+Philosopher 8 has finished eating
+Philosopher 8 has started thinking
+Philosopher 3 has started eating
+Philosopher 7 has finished talking
+Philosopher 4 has started sleeping
+Philosopher 5 has started talking
+Philosopher 5 says: 2 + 2 = 5 for extremely large values of 2...
+Philosopher 6 has finished eating
+Philosopher 6 has started thinking
+Philosopher 7 has started eating
+Philosopher 3 has finished eating
+Philosopher 3 has started thinking
+Philosopher 8 has finished thinking
+Philosopher 4 has finished sleeping
+Philosopher 4 has started eating
+Philosopher 5 has finished talking
+Philosopher 7 has finished eating
+Philosopher 7 has started thinking
+Philosopher 8 has started eating
+Philosopher 7 has finished thinking
+Philosopher 4 has finished eating
+Philosopher 4 has started thinking
+Philosopher 5 has started eating
+Terminating philosopher 7
+Philosopher 5 has finished eating
+Philosopher 5 has started thinking
+Philosopher 3 has finished thinking
+Philosopher 3 has started talking
+Philosopher 3 says: 2 + 2 = 5 for extremely large values of 2...
+Philosopher 6 has finished thinking
+Philosopher 8 has finished eating
+Philosopher 8 has started thinking
+Philosopher 7 terminated
+Philosopher 4 has finished thinking
+Philosopher 4 has started eating
+Philosopher 8 has finished thinking
+Philosopher 8 has started eating
+Philosopher 5 has finished thinking
+Philosopher 3 has finished talking
+Philosopher 3 has started sleeping
+Philosopher 6 has started talking
+Philosopher 6 says: My number is 6
+Philosopher 3 has finished sleeping
+Philosopher 8 has finished eating
+Philosopher 8 has started thinking
+Philosopher 4 has finished eating
+Philosopher 4 has started thinking
+Philosopher 3 has started eating
+Philosopher 6 has finished talking
+Philosopher 6 has started eating
+Philosopher 5 has started talking
+Philosopher 5 says: My number is 5
+Philosopher 6 has finished eating
+Philosopher 6 has started thinking
+Philosopher 6 has finished thinking
+Philosopher 6 has started eating
+Philosopher 8 has finished thinking
+Adding philosopher 9
+Philosopher 5 has finished talking
+Philosopher 8 has started talking
+Philosopher 8 says: 2 + 2 = 5 for extremely large values of 2...
+Philosopher 4 has finished thinking
+Philosopher 3 has finished eating
+Philosopher 3 has started thinking
+Philosopher 9 has started eating
+Philosopher 3 has finished thinking
+Philosopher 6 has finished eating
+Philosopher 6 has started thinking
+Philosopher 5 has started eating
+Philosopher 8 has finished talking
+Philosopher 8 has started sleeping
+Philosopher 3 has started talking
+Philosopher 3 says: My number is 3
+Philosopher 5 has finished eating
+Philosopher 5 has started thinking
+Philosopher 3 has finished talking
+Philosopher 3 has started sleeping
+Philosopher 4 has started sleeping
+Philosopher 6 has finished thinking
+Philosopher 6 has started eating
+Philosopher 5 has finished thinking
+Philosopher 5 has started talking
+Philosopher 5 says: Eh, it's not easy to be a philosopher: eat, think, talk, eat...
+Philosopher 9 has finished eating
+Philosopher 9 has started thinking
+Philosopher 8 has finished sleeping
+Philosopher 9 has finished thinking
+Philosopher 6 has finished eating
+Philosopher 8 has started eating
+Philosopher 6 has started thinking
+Philosopher 3 has finished sleeping
+Philosopher 3 has started eating
+Philosopher 6 has finished thinking
+Philosopher 5 has finished talking
+Philosopher 5 has started eating
+Philosopher 9 has started talking
+Philosopher 9 says: 2 + 2 = 5 for extremely large values of 2...
+Philosopher 9 has finished talking
+Philosopher 6 has started talking
+Philosopher 6 says: 2 + 2 = 5 for extremely large values of 2...
+Philosopher 4 has finished sleeping
+Adding philosopher 10
+Philosopher 5 has finished eating
+Philosopher 5 has started thinking
+Philosopher 8 has finished eating
+Philosopher 8 has started thinking
+Philosopher 9 has started eating
+Philosopher 3 has finished eating
+Philosopher 3 has started thinking
+Philosopher 6 has finished talking
+Philosopher 6 has started eating
+Philosopher 3 has finished thinking
+Philosopher 3 has started talking
+Philosopher 3 says: My number is 3
+Philosopher 9 has finished eating
+Philosopher 9 has started thinking
+Philosopher 10 has started eating
+Philosopher 5 has finished thinking
+Philosopher 8 has finished thinking
+Philosopher 10 has finished eating
+Philosopher 10 has started thinking
+Philosopher 6 has finished eating
+Philosopher 6 has started thinking
+Philosopher 8 has started eating
+Philosopher 3 has finished talking
+Philosopher 5 has started talking
+Philosopher 5 says: 2 + 2 = 5 for extremely large values of 2...
+Philosopher 9 has finished thinking
+Philosopher 10 has finished thinking
+Terminating philosopher 5
+Philosopher 5 has finished talking
+Philosopher 5 has started eating
+Philosopher 10 has started talking
+Philosopher 10 says: My number is 10
+Philosopher 5 has finished eating
+Philosopher 5 terminated
+Philosopher 6 has finished thinking
+Philosopher 10 has finished talking
+Philosopher 10 has started eating
+Philosopher 10 has finished eating
+Philosopher 10 has started thinking
+Philosopher 8 has finished eating
+Philosopher 8 has started thinking
+Philosopher 9 has started eating
+Philosopher 6 has started eating
+Philosopher 10 has finished thinking
+Philosopher 10 has started talking
+Philosopher 10 says: If thee cannot speak, thee must be silent
+Philosopher 10 has finished talking
+Philosopher 8 has finished thinking
+Philosopher 8 has started talking
+Philosopher 8 says: My number is 8
+Philosopher 9 has finished eating
+Philosopher 9 has started thinking
+Philosopher 10 has started eating
+Philosopher 6 has finished eating
+Philosopher 6 has started thinking
+Philosopher 10 has finished eating
+Philosopher 10 has started thinking
+Philosopher 8 has finished talking
+Philosopher 8 has started eating
+Philosopher 9 has finished thinking
+Philosopher 10 has finished thinking
+Philosopher 10 has started talking
+Philosopher 10 says: If thee cannot speak, thee must be silent
+Philosopher 10 has finished talking
+Philosopher 6 has finished thinking
+Philosopher 10 has started sleeping
+Philosopher 6 has started talking
+Philosopher 6 says: You know, true is false and false is true if you think of it
+Philosopher 10 has finished sleeping
+Philosopher 10 has started eating
+Philosopher 8 has finished eating
+Philosopher 8 has started thinking
+Philosopher 8 has finished thinking
+Philosopher 6 has finished talking
+Philosopher 6 has started eating
+Philosopher 8 has started talking
+Philosopher 8 says: You know, true is false and false is true if you think of it
+Philosopher 10 has finished eating
+Philosopher 9 has started eating
+Philosopher 10 has started thinking
+Philosopher 10 has finished thinking
+Philosopher 6 has finished eating
+Philosopher 6 has started thinking
+Philosopher 8 has finished talking
+Philosopher 10 has started talking
+Philosopher 10 says: If thee cannot speak, thee must be silent
+Philosopher 9 has finished eating
+Philosopher 8 has started eating
+Philosopher 9 has started thinking
+Philosopher 10 has finished talking
+Philosopher 10 has started eating
+Philosopher 8 has finished eating
+Philosopher 8 has started thinking
+Philosopher 9 has finished thinking
+Philosopher 9 has started sleeping
+Philosopher 6 has finished thinking
+Philosopher 9 has finished sleeping
+Philosopher 10 has finished eating
+Philosopher 10 has started thinking
+Philosopher 9 has started eating
+Philosopher 9 has finished eating
+Philosopher 9 has started thinking
+Philosopher 8 has finished thinking
+Philosopher 8 has started sleeping
+Philosopher 8 has finished sleeping
+Philosopher 8 has started eating
+Philosopher 10 has finished thinking
+Philosopher 10 has started talking
+Philosopher 10 says: 2 + 2 = 5 for extremely large values of 2...
+Philosopher 9 has finished thinking
+Philosopher 8 has finished eating
+Philosopher 8 has started thinking
+Philosopher 8 has finished thinking
+Philosopher 8 has started eating
+Philosopher 10 has finished talking
+Philosopher 10 has started eating
+Philosopher 9 has started talking
+Philosopher 9 says: My number is 9
+Philosopher 10 has finished eating
+Philosopher 10 has started thinking
+Philosopher 8 has finished eating
+Philosopher 8 has started thinking
+Philosopher 8 has finished thinking
+Philosopher 9 has finished talking
+Philosopher 9 has started eating
+Philosopher 8 has started talking
+Philosopher 8 says: You know, true is false and false is true if you think of it
+Philosopher 9 has finished eating
+Philosopher 9 has started thinking
+Philosopher 9 has finished thinking
+Philosopher 10 has finished thinking
+Philosopher 8 has finished talking
+Philosopher 8 has started eating
+Philosopher 9 has started talking
+Philosopher 9 says: You know, true is false and false is true if you think of it
+Philosopher 8 has finished eating
+Philosopher 8 has started thinking
+Philosopher 8 has finished thinking
+Philosopher 9 has finished talking
+Philosopher 9 has started eating
+Philosopher 10 has started talking
+Philosopher 10 says: 2 + 2 = 5 for extremely large values of 2...
+Philosopher 9 has finished eating
+Philosopher 9 has started thinking
+Philosopher 10 has finished talking
+Philosopher 10 has started eating
+Philosopher 9 has finished thinking
+Philosopher 9 has started talking
+Philosopher 9 says: 2 + 2 = 5 for extremely large values of 2...
+Philosopher 10 has finished eating
+Philosopher 10 has started thinking
+Philosopher 10 has finished thinking
+Philosopher 9 has finished talking
+Philosopher 9 has started eating
+Philosopher 10 has started talking
+Philosopher 10 says: You know, true is false and false is true if you think of it
+Philosopher 10 has finished talking
+Philosopher 10 has started sleeping
+Philosopher 10 has finished sleeping
+Philosopher 9 has finished eating
+Philosopher 10 has started eating
+Philosopher 9 has started thinking
+Philosopher 9 has finished thinking
+Philosopher 10 has finished eating
+Philosopher 10 has started thinking
+Philosopher 9 has started eating
+Philosopher 9 has finished eating
+Philosopher 9 has started thinking
+Philosopher 10 has finished thinking
+Philosopher 10 has started talking
+Philosopher 10 says: If thee cannot speak, thee must be silent
+Philosopher 10 has finished talking
+Philosopher 10 has started sleeping
+Philosopher 9 has finished thinking
+Philosopher 9 has started talking
+Philosopher 9 says: If thee cannot speak, thee must be silent
+Philosopher 10 has finished sleeping
+Philosopher 10 has started eating
+Philosopher 9 has finished talking
+Philosopher 10 has finished eating
+Philosopher 10 has started thinking
+Philosopher 9 has started eating
+Philosopher 9 has finished eating
+Philosopher 9 has started thinking
+Philosopher 10 has finished thinking
+Philosopher 10 has started talking
+Philosopher 10 says: You know, true is false and false is true if you think of it
+Philosopher 10 has finished talking
+Philosopher 10 has started eating
+Philosopher 9 has finished thinking
+Philosopher 10 has finished eating
+Philosopher 10 has started thinking
+Philosopher 10 has finished thinking
+Philosopher 10 has started sleeping
+Philosopher 10 has finished sleeping
+All philosophers have left. System terminates normally.
+
+Process finished with exit code 0
