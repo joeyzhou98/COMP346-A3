@@ -17,15 +17,12 @@ public class DiningPhilosophers
 	 * ------------
 	 */
 
-	/**
-	 * This default may be overridden from the command line
-	 */
 	public static final int DEFAULT_ADD_REMOVE_ITERATIONS = 10;
 
 	/**
 	 * This default may be overridden from the command line
 	 */
-	public static final int DEFAULT_NUMBER_OF_PHILOSOPHERS = 10;
+	public static final int DEFAULT_NUMBER_OF_PHILOSOPHERS = 4;
 
 	/**
 	 * Dining "iterations" per philosopher thread
@@ -83,36 +80,34 @@ public class DiningPhilosophers
 			int count = iPhilosophers; //number of philosophers
 			for (int i = 0; i < DEFAULT_ADD_REMOVE_ITERATIONS; i++)
 			{
-				TimeUnit.SECONDS.sleep(1);
+				TimeUnit.SECONDS.sleep(2); //space out time in between adding/removing philosophers
 				if (count > 2 && Math.random() < 0.5) //as long as there is 3 or more philosophers left and random < 0.5
 				{ //kill someone
-					int killIndex = getRandomIndex(count);
-					while (in(killIndex, deadList)) {killIndex = getRandomIndex(count);}
-					deadList.add(killIndex);
-					int id = aoPhilosophers.get(killIndex).getTID();
+					int killIndex = getRandomIndex(aoPhilosophers.size()); //get random index of philosopher to kill
+					//and while the index we got is in the dead list, meaning that philosopher is already dead, get a new index
+					while (in(killIndex, deadList)) {killIndex = getRandomIndex(aoPhilosophers.size());}
+					deadList.add(killIndex); //add that new index to the dead list
+					int id = aoPhilosophers.get(killIndex).getTID(); //get that soon-to-be dead philosopher thread id
 					System.out.println("Terminating philosopher " + id);
-					soMonitor.requestRemove(id);
-					aoPhilosophers.get(killIndex).terminate();
-					count--;
+					soMonitor.requestRemove(id); //tell the monitor to remove this thread
+					aoPhilosophers.get(killIndex).terminate(); //once monitor gives the green light, terminate thread
+					count--; //decrement count
 				}
 				else //else add a philosopher
 				{
-					count++;
+					count++; //increment count
 					Philosopher temp = new Philosopher();
 					System.out.println("Adding philosopher " + temp.getTID());
-					soMonitor.requestAdd(temp.getTID());
+					soMonitor.requestAdd(temp.getTID()); //tell the monitor we are adding a new philosopher
 					aoPhilosophers.add(temp);
-					temp.start();
+					temp.start(); //add and start thread
 				}
 			}
 
 			// Main waits for all its children to die...
 			// I mean, philosophers to finish their dinner.
-			for(int j = 0; j < aoPhilosophers.size(); j++)
+			for (int j = 0; j < aoPhilosophers.size(); j++)
 			{
-//				if (in(j, deadList))
-//					continue;
-
 				aoPhilosophers.get(j).join();
 			}
 
@@ -140,7 +135,7 @@ public class DiningPhilosophers
 
 	public static int getRandomIndex(int count)
 	{
-		return (int) Math.floor(Math.random() * (count - 1) + 1);
+		return (int) Math.floor(Math.random() * count);
 	}
 
 	public static boolean in(int killIndex, ArrayList<Integer> deadList)

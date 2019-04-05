@@ -1,4 +1,4 @@
-package Task4;
+package Task6;
 
 /**
  * Class DiningPhilosophers
@@ -49,31 +49,7 @@ public class DiningPhilosophers
 			 * or the default if no arguments supplied.
 			 */
 			int iPhilosophers = DEFAULT_NUMBER_OF_PHILOSOPHERS;
-			if (argv.length == 1) //if there is an argument
-			{
-				try
-				{
-					int argument = Integer.parseInt(argv[0]); //parse argument
-					if (argument < 1) //if it is non-positive
-					{
-						//print error message and exit
-						System.out.println(argv[0] + " is not a positive decimal integer");
-						System.out.println("Usage: java DiningPhilosophers [NUMBER_OF_PHILOSOPHERS]");
-						System.exit(-1);
-					}
-					else
-					{
-						iPhilosophers = argument; //if it is positive integer then set iPhilosophers to the passed integer
-					}
-				}
-				catch (NumberFormatException e)
-				{
-					//print error message and exit
-					System.out.println(argv[0] + " is not a positive decimal integer");
-					System.out.println("Usage: java DiningPhilosophers [NUMBER_OF_PHILOSOPHERS]");
-					System.exit(-1);
-				}
-			}
+
 			// Make the monitor aware of how many philosophers there are
 			soMonitor = new Monitor(iPhilosophers);
 

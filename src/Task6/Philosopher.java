@@ -1,4 +1,4 @@
-package Task3;
+package Task6;
 
 import common.BaseThread;
 
@@ -30,6 +30,14 @@ public class Philosopher extends BaseThread
 			System.out.println("Philosopher " + getTID() + " has started eating");
 			yield();
 			sleep((long)(Math.random() * TIME_TO_WASTE));
+			if (Math.random() < 0.5) //(~50% chance to use pepper while eating
+			{
+				DiningPhilosophers.soMonitor.requestPepper(getTID()); //request pepper
+				yield();
+				usePepper(); //use pepper
+				yield();
+				DiningPhilosophers.soMonitor.endPepper(getTID()); //release pepper
+			}
 			yield();
 			System.out.println("Philosopher " + getTID() + " has finished eating");
 		}
@@ -107,6 +115,24 @@ public class Philosopher extends BaseThread
 	}
 
 	/**
+	/**
+	 * task 6
+	 */
+	public void usePepper()
+	{
+		System.out.println("Philosopher " + getTID() + " has started using pepper");
+		yield();
+		try {
+			sleep((long)(Math.random() * TIME_TO_WASTE));
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		yield();
+		System.out.println("Philosopher " + getTID() + " has finished using pepper");
+		
+	}
+	/*
 	 * No, this is not the act of running, just the overridden Thread.run()
 	 */
 	public void run()
@@ -136,7 +162,7 @@ public class Philosopher extends BaseThread
 				DiningPhilosophers.soMonitor.endTalk(getTID());
 			}
 
-			// ifa random number is less than 0.2, then sleep (~20% chance)
+			// if a random number is less than 0.2, then sleep (~20% chance)
 			if (Math.random() < 0.2)
 			{
 				DiningPhilosophers.soMonitor.requestSleep(getTID());
