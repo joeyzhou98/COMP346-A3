@@ -168,6 +168,12 @@ public class Philosopher extends BaseThread
 						"Philosopher " + getTID() + " says: " +
 										astrPhrases[(int)(Math.random() * astrPhrases.length)]
 		);
+		//limited time to talk
+		try {
+			sleep((long)(Math.random() * TIME_TO_WASTE));
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 }
 
