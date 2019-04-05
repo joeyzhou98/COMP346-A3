@@ -1,7 +1,5 @@
-package Task3;
+package Task6;
 
-import java.util.Collections;
-import java.util.ArrayList;
 
 /**
  * Class Monitor
@@ -19,9 +17,8 @@ public class Monitor
 	private int n;  //number of philosophers
 	enum State {THINKING, HUNGRY, EATING, SLEEPING, TALKING}
 	private State state[]; //state of each philosopher
-	private int priorities[]; //priority of each philosopher where index + 1 is the philosopher ID and priorities[index]
-	//is that philosopher's priority where 1 is the highest priority
 	private boolean someoneTalking; //flag on whether a philosopher is talking
+	private int pepperShakers = 2;//number of available pepperShakers
 
 	/**
 	 * Constructor
@@ -31,22 +28,11 @@ public class Monitor
 		// TODO: set appropriate number of chopsticks based on the # of philosophers
 		n = piNumberOfPhilosophers; //set n to the number of philosophers
 		state = new State[n]; //allocate n State memory space
-		priorities = new int[n]; //allocate n integer memory space
-		ArrayList<Integer> list = new ArrayList<Integer>(); //declare temporary list
 		for (int i = 0; i < n; i++)
 		{
 			state[i] = State.THINKING; //initialize each philosopher to THINKING
-			list.add(i + 1); //set values of list to be index + 1
 		}
 		someoneTalking = false; //initialize someone talking flag to false
-		Collections.shuffle(list); //shuffle list
-		System.out.println("Priorities: "); //print out priority array
-		for (int i = 0; i < n; i++)
-		{
-			priorities[i] = list.get(i); //copy over the values from list to priorities array
-			System.out.print(list.get(i) + " "); //print out priority number
-		}
-		System.out.println(); //return line
 	}
 
 	/*
@@ -54,22 +40,6 @@ public class Monitor
 	 * User-defined monitor procedures
 	 * -------------------------------
 	 */
-	public synchronized boolean check(final int piTID) //check function for priority for philosopher with number id
-	{
-		int index = piTID - 1; //get index
-		for (int i = 0; i < n; i++) //loop through priorities array
-		{
-			//if the state of a philosopher is hungry and his priority is higher,
-			if (state[i] == State.HUNGRY && priorities[i] < priorities[index])
-			{
-				//then print out that philosopher piTID tired to eat with their priorities
-				System.out.println("Philosopher " + piTID + " tried to eat, with priority " + priorities[index] +
-								" but philosopher " + (i + 1) + " has higher priority: " + priorities[i]);
-				return false; //return false
-			}
-		}
-		return true; //if no philosopher is hungry and have higher priority then let that philosopher eat
-	}
 	/**
 	 * Grants request (returns) to eat when both chopsticks/forks are available.
 	 * Else forces the philosopher to wait()
@@ -86,8 +56,7 @@ public class Monitor
 				//and that he isn't currently eating, then he can proceed
 				if (state[(index + 1) % n] != State.EATING &&
 						state[(index + n - 1) % n] != State.EATING &&
-						state[index] != State.EATING &&
-						check(piTID)) //add check for priority
+						state[index] != State.EATING)
 				{
 					state[index] = State.EATING; //set state to eating
 					notifyAll(); //allow waiting threads to try to eat
@@ -114,7 +83,7 @@ public class Monitor
 		int index = piTID - 1; //index corresponding to our philosopher
 		state[index] = State.THINKING; //set state to thinking
 		notifyAll(); //wake threads and exit
-		return; //exit
+		return;
 	}
 
 	/**
@@ -190,9 +159,43 @@ public class Monitor
 
 	public synchronized void endSleep(final int piTID)
 	{
-		state[piTID - 1] = State.THINKING; //reset state to thinking
+		state[piTID - 1] = State.THINKING;
+	}
+	/**
+	 * task 6
+	 * @param piTID
+	 */
+	public synchronized void requestPepper(final int piTID)
+	{
+		int index = piTID - 1;
+		while(true) //infinite loop
+		{
+			try {
+			if (state[index] == State.EATING && pepperShakers > 0) //only if he is eating and there is a shaker available
+			{
+				pepperShakers--; //decrement number of pepper shakers
+				notifyAll();
+				return; //exit
+			}
+			else
+			{
+				System.out.println("No pepper shaker is available, philsopher " + piTID + " has to wait.");				
+				wait();
+			}
+			} 
+			catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} //else wait for someone to finish talking
+			
+		}
+	}
+	public synchronized void endPepper(final int piTID)
+	{
+		pepperShakers++; //increment number of pepper shakers
 		notifyAll();
 	}
+	
 }
 
 // EOF

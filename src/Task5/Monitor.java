@@ -16,7 +16,7 @@ public class Monitor
 	 * ------------
 	 */
 	private int n;  //number of philosophers
-	enum State {THINKING, HUNGRY, EATING, TALKING}
+	enum State {THINKING, HUNGRY, EATING, TALKING, SLEEPING}
 	private DoublyLinkedListImpl list; //state of each philosopher
 	private ArrayList<Integer> deadList;
 	private boolean someoneTalking; //flag on whether a philosopher is talking
@@ -53,6 +53,7 @@ public class Monitor
 		try
 		{
 			DoublyLinkedListImpl.Node target = list.find(piTID);
+			if (target == null) {return;} //in case of not finding thread
 			target.state = State.HUNGRY; //set state to hungry
 			while(true) //infinite loop
 			{
@@ -87,13 +88,14 @@ public class Monitor
 		if (in(piTID, deadList)) {return;}
 
 		DoublyLinkedListImpl.Node target = list.find(piTID);
+		if (target == null) {return;} //in case of not finding thread
 		target.state = State.THINKING; //set state to thinking
 		notifyAll(); //wake threads and exit
 		return;
 	}
 
 	/**
-	 * Only one philopher at a time is allowed to philosophy
+	 * Only one philosopher at a time is allowed to philosophy
 	 * (while she is not eating).
 	 */
 	public synchronized void requestTalk(final int piTID)
@@ -104,10 +106,14 @@ public class Monitor
 		{
 			while(true) //infinite loop
 			{
-				if (!someoneTalking) //only if someone isn't talking
+				DoublyLinkedListImpl.Node target = list.find(piTID);
+				if (target == null) {return;} //in case of not finding thread
+				//only if someone isn't talking and that the target isn't eating or sleeping
+				if (!someoneTalking && target.state != State.EATING)
 				{
-					list.find(piTID).state = State.TALKING;
+					target.state = State.TALKING;
 					someoneTalking = true; //set talking flag to true
+					notifyAll();
 					return; //exit
 				}
 				else
@@ -136,6 +142,49 @@ public class Monitor
 		return; //exit
 	}
 
+	/**
+	 * philosopher cannot sleep while other are talking
+	 *
+	 */
+	public synchronized void requestSleep(final int piTID)
+	{
+		if (in(piTID, deadList)) {return;}
+
+		try
+		{
+			while(true) //infinite loop
+			{
+				DoublyLinkedListImpl.Node target = list.find(piTID);
+				if (target == null) {return;} //in case of not finding thread
+				if (!someoneTalking) //only if someone isn't talking, he can sleep
+				{
+					target.state = State.SLEEPING;
+					notifyAll();
+					break; //exit
+				}
+				else
+				{
+					//System.out.println("Someone is talking, " + (piTID -1)+ " philosopher cannot sleep.");
+					wait(); //else wait for someone to finish talking
+				}
+			}
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	public synchronized void endSleep(final int piTID)
+	{
+		if (in(piTID, deadList)) {return;}
+
+		DoublyLinkedListImpl.Node target = list.find(piTID);
+		if (target == null) {return;} //in case of not finding thread
+		target.state = State.THINKING; //reset state to thinking
+		notifyAll();
+	}
+
 	public synchronized void requestRemove(final int piTID)
 	{
 		if (in(piTID, deadList)) {return;}
@@ -143,12 +192,13 @@ public class Monitor
 		try
 		{
 			DoublyLinkedListImpl.Node target = list.find(piTID);
+			if (target == null) {return;} //in case of not finding thread
 			while (true) //infinite loop
 			{
-				if (target.next().state != State.EATING ||
-								target.prev().state != State.EATING ||
-								target.state != State.TALKING)
+				if ((target.next().state != State.EATING || target.prev().state != State.EATING)
+								&& target.state != State.TALKING)
 				{
+					target.state = State.THINKING;
 					list.remove(piTID);
 					n--;
 					deadList.add(piTID);

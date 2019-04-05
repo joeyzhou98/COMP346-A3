@@ -46,7 +46,8 @@ public class DoublyLinkedListImpl {
 
   public boolean isEmpty() { return size == 0; }
 
-  public void addFirst(int id, Monitor.State s) {
+  public void addFirst(int id, Monitor.State s)
+  {
     Node tmp = new Node(id, s, head, null);
     if(head != null ) {head.prev = tmp;}
     head = tmp;
@@ -54,8 +55,8 @@ public class DoublyLinkedListImpl {
     size++;
   }
 
-  public void addLast(int id, Monitor.State s) {
-
+  public void addLast(int id, Monitor.State s)
+  {
     Node tmp = new Node(id, s, null, tail);
     if(tail != null) {tail.next = tmp;}
     tail = tmp;
@@ -66,7 +67,7 @@ public class DoublyLinkedListImpl {
   public Node find(int pID)
   {
     Node tmp = head;
-    while(!tmp.equals(tail))
+    while(tmp.next != null)
     {
       if (tmp.pID == pID)
       {
@@ -86,19 +87,19 @@ public class DoublyLinkedListImpl {
       //case target is tail
       if (target.equals(tail))
       {
-        Node next = target.next;
-        next.prev = null;
-        target.next = null;
-        tail = next;
+        Node prev = target.prev;
+        prev.next = null;
+        target.prev = null;
+        tail = prev;
         size--;
       }
       //case target is head
       else if (target.equals(head))
       {
-        Node prev = target.prev;
-        prev.next = null;
-        target.prev = null;
-        head = prev;
+        Node next = target.next;
+        next.prev = null;
+        target.next = null;
+        head = next;
         size--;
       }
       //case target is between two nodes

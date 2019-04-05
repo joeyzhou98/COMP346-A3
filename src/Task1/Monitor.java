@@ -64,6 +64,18 @@ public class Monitor
 	{
 		// ...
 	}
+
+	//when a philosopher needs to sleep
+	public synchronized void requestSleep(final int piTID)
+	{
+		// ...
+	}
+
+	//when a philosopher is done sleeping
+	public synchronized void endSleep(final int piTID)
+	{
+		// ...
+	}
 }
 
 // EOF
